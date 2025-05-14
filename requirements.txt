@@ -1,1 +1,6 @@
-ECHO est  ativado.
+selenium
+pandas
+openpyxl
+beautifulsoup4
+boto3
+
