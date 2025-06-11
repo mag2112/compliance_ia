@@ -1,0 +1,8 @@
+boto3
+pandas
+openpyxl
+beautifulsoup4
+selenium
+sentence-transformers
+opensearch-py
+requests-aws4auth

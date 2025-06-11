@@ -1,0 +1,133 @@
+Tipo,Cenario,Trimestre,Ano,Preco,Data Base
+No.11 Raw Sugar - Cents/lb,Base case,Q3,2023,23.98046659049862,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q4,2023,25.50226318330184,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q1,2024,25.02480408237242,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q2,2024,23.51440827568252,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q3,2024,22.96730532124366,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q4,2024,22.01323615250186,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q1,2025,21.2896187314935,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q2,2025,20.1962991150462,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q3,2025,18.89431591822977,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q4,2025,18.84747146336563,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q1,2026,19.19255529896963,202308
+No.11 Raw Sugar - Cents/lb,Base case,Q2,2026,19.27859777209273,202308
+No.11 Raw Sugar - Cents/lb,High,Q3,2023,26.16888873505948,202308
+No.11 Raw Sugar - Cents/lb,High,Q4,2023,29.98526813474039,202308
+No.11 Raw Sugar - Cents/lb,High,Q1,2024,27.57911168544109,202308
+No.11 Raw Sugar - Cents/lb,High,Q2,2024,27.00537374156757,202308
+No.11 Raw Sugar - Cents/lb,High,Q3,2024,26.08336957001873,202308
+No.11 Raw Sugar - Cents/lb,High,Q4,2024,25.2724192958946,202308
+No.11 Raw Sugar - Cents/lb,High,Q1,2025,24.60713064475388,202308
+No.11 Raw Sugar - Cents/lb,High,Q2,2025,23.38157298792587,202308
+No.11 Raw Sugar - Cents/lb,High,Q3,2025,21.83124696546825,202308
+No.11 Raw Sugar - Cents/lb,High,Q4,2025,21.23734686678453,202308
+No.11 Raw Sugar - Cents/lb,High,Q1,2026,21.54911391109144,202308
+No.11 Raw Sugar - Cents/lb,High,Q2,2026,21.70156089527588,202308
+No.11 Raw Sugar - Cents/lb,Low,Q3,2023,22.03149618339305,202308
+No.11 Raw Sugar - Cents/lb,Low,Q4,2023,22.50141181511357,202308
+No.11 Raw Sugar - Cents/lb,Low,Q1,2024,22.03639774585479,202308
+No.11 Raw Sugar - Cents/lb,Low,Q2,2024,21.84400110861674,202308
+No.11 Raw Sugar - Cents/lb,Low,Q3,2024,21.50161189894061,202308
+No.11 Raw Sugar - Cents/lb,Low,Q4,2024,20.45358156811334,202308
+No.11 Raw Sugar - Cents/lb,Low,Q1,2025,19.60809622153378,202308
+No.11 Raw Sugar - Cents/lb,Low,Q2,2025,18.56727421425705,202308
+No.11 Raw Sugar - Cents/lb,Low,Q3,2025,17.57096265038862,202308
+No.11 Raw Sugar - Cents/lb,Low,Q4,2025,17.44794274875957,202308
+No.11 Raw Sugar - Cents/lb,Low,Q1,2026,17.61059785271581,202308
+No.11 Raw Sugar - Cents/lb,Low,Q2,2026,17.73325354904877,202308
+No.5 White Sugar - US$/tonne,Base case,Q3,2023,668.357264272787,202308
+No.5 White Sugar - US$/tonne,Base case,Q4,2023,702.0836966336483,202308
+No.5 White Sugar - US$/tonne,Base case,Q1,2024,695.6863485963457,202308
+No.5 White Sugar - US$/tonne,Base case,Q2,2024,660.634084206169,202308
+No.5 White Sugar - US$/tonne,Base case,Q3,2024,633.6106084191804,202308
+No.5 White Sugar - US$/tonne,Base case,Q4,2024,612.9750659660897,202308
+No.5 White Sugar - US$/tonne,Base case,Q1,2025,607.9310399763465,202308
+No.5 White Sugar - US$/tonne,Base case,Q2,2025,571.4214927868342,202308
+No.5 White Sugar - US$/tonne,Base case,Q3,2025,520.4164528087418,202308
+No.5 White Sugar - US$/tonne,Base case,Q4,2025,523.8774581092657,202308
+No.5 White Sugar - US$/tonne,Base case,Q1,2026,526.4154677252175,202308
+No.5 White Sugar - US$/tonne,Base case,Q2,2026,535.8226862888946,202308
+No.5 White Sugar - US$/tonne,High,Q3,2023,716.6032188717757,202308
+No.5 White Sugar - US$/tonne,High,Q4,2023,800.9160237930628,202308
+No.5 White Sugar - US$/tonne,High,Q1,2024,751.9986140135977,202308
+No.5 White Sugar - US$/tonne,High,Q2,2024,737.5959088670708,202308
+No.5 White Sugar - US$/tonne,High,Q3,2024,702.3073608476755,202308
+No.5 White Sugar - US$/tonne,High,Q4,2024,684.8270175453259,202308
+No.5 White Sugar - US$/tonne,High,Q1,2025,681.0689076160847,202308
+No.5 White Sugar - US$/tonne,High,Q2,2025,641.6440405883394,202308
+No.5 White Sugar - US$/tonne,High,Q3,2025,585.1640346761615,202308
+No.5 White Sugar - US$/tonne,High,Q4,2025,576.564651253039,202308
+No.5 White Sugar - US$/tonne,High,Q1,2026,578.368158888055,202308
+No.5 White Sugar - US$/tonne,High,Q2,2026,589.2393313025904,202308
+No.5 White Sugar - US$/tonne,Low,Q3,2023,625.3902626777378,202308
+No.5 White Sugar - US$/tonne,Low,Q4,2023,635.9269273705697,202308
+No.5 White Sugar - US$/tonne,Low,Q1,2024,629.8039425014781,202308
+No.5 White Sugar - US$/tonne,Low,Q2,2024,623.8082878010368,202308
+No.5 White Sugar - US$/tonne,Low,Q3,2024,601.2979312310873,202308
+No.5 White Sugar - US$/tonne,Low,Q4,2024,578.5909209986603,202308
+No.5 White Sugar - US$/tonne,Low,Q1,2025,570.8601947217744,202308
+No.5 White Sugar - US$/tonne,Low,Q2,2025,535.5080098240368,202308
+No.5 White Sugar - US$/tonne,Low,Q3,2025,491.2418066659159,202308
+No.5 White Sugar - US$/tonne,Low,Q4,2025,493.0234480670605,202308
+No.5 White Sugar - US$/tonne,Low,Q1,2026,491.5396338651059,202308
+No.5 White Sugar - US$/tonne,Low,Q2,2026,501.7540275476674,202308
+Tel-quel White Premium - US$/tonne,Base case,Q3,2023,139.6786221160046,202308
+Tel-quel White Premium - US$/tonne,Base case,Q4,2023,139.8551919966757,202308
+Tel-quel White Premium - US$/tonne,Base case,Q1,2024,143.9840123394653,202308
+Tel-quel White Premium - US$/tonne,Base case,Q2,2024,142.2302661906515,202308
+Tel-quel White Premium - US$/tonne,Base case,Q3,2024,127.2683424998718,202308
+Tel-quel White Premium - US$/tonne,Base case,Q4,2024,127.66641883608,202308
+Tel-quel White Premium - US$/tonne,Base case,Q1,2025,138.5754217057197,202308
+Tel-quel White Premium - US$/tonne,Base case,Q2,2025,126.1694393107203,202308
+Tel-quel White Premium - US$/tonne,Base case,Q3,2025,103.8682073259463,202308
+Tel-quel White Premium - US$/tonne,Base case,Q4,2025,108.3619557841851,202308
+Tel-quel White Premium - US$/tonne,Base case,Q1,2026,103.2921712419673,202308
+Tel-quel White Premium - US$/tonne,Base case,Q2,2026,110.8024785138284,202308
+Tel-quel White Premium - US$/tonne,High,Q3,2023,153.8812958687666,202308
+Tel-quel White Premium - US$/tonne,High,Q4,2023,158.4592149574451,202308
+Tel-quel White Premium - US$/tonne,High,Q1,2024,158.8886848876644,202308
+Tel-quel White Premium - US$/tonne,High,Q2,2024,158.9311181059707,202308
+Tel-quel White Premium - US$/tonne,High,Q3,2024,143.2500127683217,202308
+Tel-quel White Premium - US$/tonne,High,Q4,2024,143.9223815354271,202308
+Tel-quel White Premium - US$/tonne,High,Q1,2025,154.943099906498,202308
+Tel-quel White Premium - US$/tonne,High,Q2,2025,142.2832441552567,202308
+Tel-quel White Premium - US$/tonne,High,Q3,2025,119.5054036979139,202308
+Tel-quel White Premium - US$/tonne,High,Q4,2025,122.9498880314153,202308
+Tel-quel White Premium - US$/tonne,High,Q1,2026,117.8162777353,202308
+Tel-quel White Premium - US$/tonne,High,Q2,2026,125.4539679215298,202308
+Tel-quel White Premium - US$/tonne,Low,Q3,2023,125.9457686798852,202308
+Tel-quel White Premium - US$/tonne,Low,Q4,2023,124.1051635686882,202308
+Tel-quel White Premium - US$/tonne,Low,Q1,2024,128.25774846611,202308
+Tel-quel White Premium - US$/tonne,Low,Q2,2024,129.0315950732257,202308
+Tel-quel White Premium - US$/tonne,Low,Q3,2024,114.4621923916785,202308
+Tel-quel White Premium - US$/tonne,Low,Q4,2024,114.6798411358672,202308
+Tel-quel White Premium - US$/tonne,Low,Q1,2025,125.354941884693,202308
+Tel-quel White Premium - US$/tonne,Low,Q2,2025,113.0494094787624,202308
+Tel-quel White Premium - US$/tonne,Low,Q3,2025,91.33416986102253,202308
+Tel-quel White Premium - US$/tonne,Low,Q4,2025,95.68180335423521,202308
+Tel-quel White Premium - US$/tonne,Low,Q1,2026,90.26219605830339,202308
+Tel-quel White Premium - US$/tonne,Low,Q2,2026,97.84274649485153,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q3,2023,4.778580097704343,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q4,2023,4.818547870239785,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q1,2024,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q2,2024,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q3,2024,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q4,2024,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q1,2025,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q2,2025,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q3,2025,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q4,2025,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q1,2026,4.872543755881654,202308
+R$/US$ exchange rate applied (based on R$/US$ futures,Base case,Q2,2026,4.872543755881654,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q3,2023,80.09,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q4,2023,79.17,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q1,2024,77.77666666666666,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q2,2024,76.46333333333332,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q3,2024,75.17666666666666,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q4,2024,74.00666666666667,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q1,2025,72.86666666666667,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q2,2025,71.81333333333333,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q3,2025,70.81,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q4,2025,69.91333333333334,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q1,2026,69.19666666666666,202308
+World oil price used (based on WTI futures) - US$/bbl,Base case,Q2,2026,69.3,202308

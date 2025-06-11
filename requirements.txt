@@ -1,6 +1,4 @@
-selenium
+sentence-transformers
+opensearch-py
+numpy
 pandas
-openpyxl
-beautifulsoup4
-boto3
-

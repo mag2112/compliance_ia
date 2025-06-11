@@ -1,0 +1,222 @@
+
+
+
+Você como especialista em ML
+criar um intelegencia analise semantica para analisar documento como leis , artigos etc....
+esse docmentos devem sofrer alteração tipo lei revoganda ou artigos revogada, onde devemos
+criar um estrutura no banco open search com estutura para alteração com ID para comparação hash
+será utilizado o Amazon SageMaker studio  segue um arquivo como exemplo que já está no S3 
+esse bucket terá esse arquivos ler pasta s3://compliance-legislacoes/output/ e processar todos os arquivos
+s3://compliance-legislacoes/output/lei_no_51721966.xlsx
+s3://compliance-legislacoes/output/lei_no_64041976.xlsx
+vou anexar um o arquivo para você verificar
+e alguns scripts para você tomar conhecimento e corrigir se necessario
+criar indice
+import boto3
+from requests_aws4auth import AWS4Auth
+from opensearchpy import OpenSearch, RequestsHttpConnection
+
+# === CONFIGURAÇÕES ===
+region = 'us-east-1'  # Altere conforme sua região
+host = 'SEU-ENDPOINT.opensearch.amazonaws.com'  # Substitua pelo endpoint do seu OpenSearch
+service = 'es'
+
+# === AUTENTICAÇÃO VIA IAM ===
+session = boto3.Session()
+credentials = session.get_credentials()
+awsauth = AWS4Auth(
+    credentials.access_key,
+    credentials.secret_key,
+    region,
+    service,
+    session_token=credentials.token
+)
+
+# === CONEXÃO COM OPENSEARCH ===
+client = OpenSearch(
+    hosts=[{'host': host, 'port': 443}],
+    http_auth=awsauth,
+    use_ssl=True,
+    verify_certs=True,
+    connection_class=RequestsHttpConnection
+)
+
+# === NOME DO ÍNDICE ===
+INDEX_NAME = "compliance_docs"
+
+# === MAPEAMENTO DO ÍNDICE COM SUPORTE A KNN ===
+mapping = {
+    "settings": {
+        "index.knn": True
+    },
+    "mappings": {
+        "properties": {
+            "id": {"type": "keyword"},
+            "tipo": {"type": "keyword"},
+            "titulo": {"type": "text"},
+            "artigo": {"type": "keyword"},
+            "texto": {"type": "text"},
+            "versao": {"type": "date"},
+            "hash": {"type": "keyword"},
+            "ativo": {"type": "boolean"},
+            "revogado_em": {"type": "date"},
+            "embedding": {
+                "type": "knn_vector",
+                "dimension": 384  # Dimensão padrão do modelo all-MiniLM-L6-v2
+            }
+        }
+    }
+}
+
+# === CRIA O ÍNDICE CASO NÃO EXISTA ===
+if not client.indices.exists(INDEX_NAME):
+    response = client.indices.create(index=INDEX_NAME, body=mapping)
+    print(f"[INFO] Índice '{INDEX_NAME}' criado com sucesso.")
+else:
+    print(f"[INFO] Índice '{INDEX_NAME}' já existe.")
+
+
+atualiza documentos
+#Gera um hash SHA-256 para cada texto
+#Verifica se o documento já existe no OpenSearch:
+#Se existir e o hash for igual → nada é feito
+#Se o hash for diferente → documento é atualizado
+
+#Se
+#Possui função marcar_como_revogado(doc_id) para sinalizar revogações
+
+import boto3
+import hashlib
+from datetime import datetime
+from requests_aws4auth import AWS4Auth
+from opensearchpy import OpenSearch, RequestsHttpConnection
+from sentence_transformers import SentenceTransformer
+
+# === CONFIGURAÇÕES ===
+region = 'us-east-2'
+host = 'SEU-ENDPOINT.opensearch.amazonaws.com'
+index_name = 'compliance_docs'
+service = 'es'
+
+# === AUTENTICAÇÃO IAM ===
+session = boto3.Session()
+credentials = session.get_credentials()
+awsauth = AWS4Auth(
+    credentials.access_key,
+    credentials.secret_key,
+    region,
+    service,
+    session_token=credentials.token
+)
+
+# === CONEXÃO COM OPENSEARCH ===
+client = OpenSearch(
+    hosts=[{'host': host, 'port': 443}],
+    http_auth=awsauth,
+    use_ssl=True,
+    verify_certs=True,
+    connection_class=RequestsHttpConnection
+)
+
+# === MODELO DE EMBEDDING ===
+modelo = SentenceTransformer("all-MiniLM-L6-v2")
+
+def gerar_hash(texto):
+    return hashlib.sha256(texto.encode("utf-8")).hexdigest()
+
+def atualizar_documento(doc_id, texto, metadados):
+    hash_novo = gerar_hash(texto)
+    versao_hoje = datetime.today().strftime('%Y-%m-%d')
+
+    try:
+        doc_antigo = client.get(index=index_name, id=doc_id)
+        hash_antigo = doc_antigo['_source'].get('hash')
+        if hash_novo == hash_antigo:
+            print(f"[OK] Documento '{doc_id}' não sofreu alterações.")
+            return
+        else:
+            print(f"[UPDATE] Documento '{doc_id}' atualizado.")
+    except Exception as e:
+        print(f"[NEW] Documento '{doc_id}' será criado.")
+
+    embedding = modelo.encode([texto])[0].tolist()
+    doc = {
+        "id": doc_id,
+        "texto": texto,
+        "hash": hash_novo,
+        "versao": versao_hoje,
+        "ativo": True,
+        "embedding": embedding,
+        **metadados
+    }
+    client.index(index=index_name, id=doc_id, body=doc)
+
+def marcar_como_revogado(doc_id):
+    try:
+        client.update(index=index_name, id=doc_id, body={
+            "doc": {
+                "ativo": False,
+                "revogado_em": datetime.today().strftime('%Y-%m-%d')
+            }
+        })
+        print(f"[REVOGADO] Documento '{doc_id}' marcado como inativo.")
+    except Exception as e:
+        print(f"[ERRO] Não foi possível marcar '{doc_id}' como revogado: {e}")
+		
+Consulta semantica
+import boto3
+from requests_aws4auth import AWS4Auth
+from opensearchpy import OpenSearch, RequestsHttpConnection
+from sentence_transformers import SentenceTransformer
+import json
+
+# Configurações
+region = 'us-east-1'
+service = 'es'
+host = 'SEU-ENDPOINT.opensearch.amazonaws.com'  # Substitua pelo seu endpoint
+
+# Autenticação IAM
+session = boto3.Session()
+credentials = session.get_credentials()
+awsauth = AWS4Auth(credentials.access_key,
+                   credentials.secret_key,
+                   region,
+                   service,
+                   session_token=credentials.token)
+
+# Conexão com OpenSearch
+client = OpenSearch(
+    hosts=[{'host': host, 'port': 443}],
+    http_auth=awsauth,
+    use_ssl=True,
+    verify_certs=True,
+    connection_class=RequestsHttpConnection
+)
+
+# Gerar vetor de consulta
+modelo = SentenceTransformer("all-MiniLM-L6-v2")
+consulta_texto = "diretrizes de combate à corrupção no setor público"
+vetor_consulta = modelo.encode([consulta_texto])[0]
+
+# Consulta semântica (KNN)
+INDEX_NAME = "compliance_docs"
+query = {
+    "size": 3,
+    "query": {
+        "knn": {
+            "embedding": {
+                "vector": vetor_consulta.tolist(),
+                "k": 3
+            }
+        }
+    }
+}
+
+response = client.search(index=INDEX_NAME, body=query)
+
+# Exibir resultados
+print(f"Consulta: {consulta_texto}\n")
+for i, hit in enumerate(response["hits"]["hits"], 1):
+    fonte = hit["_source"].get("titulo", "")
+    texto = hit["_source"]["texto"]
+    print(f"[{i}] {fonte}:\n{texto}\n")

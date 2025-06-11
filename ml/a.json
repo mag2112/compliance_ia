@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "es:ESHttpGet",
+        "es:ESHttpPut",
+        "es:ESHttpPost",
+        "es:ESHttpDelete",
+        "es:ESHttpHead"
+      ],
+      "Resource": "arn:aws:es:us-east-2:190440599924:domain/compliance-opensearch/*"
+    }
+  ]
+}
+============================
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "OpenSearchAccessViaLambda",
+			"Effect": "Allow",
+			"Action": [
+				"es:ESHttpDelete",
+				"es:ESHttpGet",
+				"es:ESHttpHead",
+				"es:ESHttpPatch",
+				"es:ESHttpPost",
+				"es:ESHttpPut"
+			],
+			"Resource": [
+				"arn:aws:es:us-east-2:190440599924:domain/compliance-opensearch/*"
+			]
+		}
+	]
+}

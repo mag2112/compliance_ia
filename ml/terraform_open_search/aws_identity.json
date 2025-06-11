@@ -1,0 +1,5 @@
+echo {
+    "UserId": "AIDASYVZE6F2DFALBFGH4",
+    "Account": "190440599924",
+    "Arn": "arn:aws:iam::190440599924:user/marco001"
+} > aws_identity.json

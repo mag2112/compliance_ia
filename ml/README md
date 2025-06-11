@@ -1,0 +1,81 @@
+
+# Projeto: Análise Semântica de Leis com Amazon SageMaker + OpenSearch
+
+Este projeto realiza a ingestão e análise semântica de documentos legais (leis, artigos etc.), com controle de versão, detecção de revogações e busca semântica via vetores em OpenSearch.
+
+## 📦 Componentes
+
+1. **Amazon S3**  
+   Armazena arquivos `.xlsx` contendo leis e artigos a serem analisados.
+
+2. **Amazon SageMaker Studio**  
+   Responsável por executar os scripts de:
+   - Processamento e extração dos dados
+   - Geração de embeddings semânticos
+   - Atualização ou inserção no OpenSearch
+
+3. **Amazon OpenSearch Service**  
+   Indexa os documentos com suporte a KNN (similaridade semântica).
+
+---
+
+## 🗂 Estrutura dos Dados
+
+Cada linha do Excel deve conter:
+- `Norma`: Ex: "Lei nº 5.172/1966"
+- `Descrição`: Ex: "art_1o_texto do artigo..."
+
+---
+
+## 🔄 Pipeline Automático
+
+- Lê todos os arquivos `.xlsx` do bucket S3: `s3://compliance-legislacoes/output/`
+- Extrai o artigo (`art_1o`, `art_2o`, etc.)
+- Remove prefixo e limpa o texto
+- Gera `embedding` com modelo `all-MiniLM-L6-v2`
+- Gera um hash (`SHA-256`) do conteúdo
+- Atualiza o OpenSearch se houver alterações ou cria novo documento
+- Marca como **revogado** se artigo anterior foi removido
+
+---
+
+## 🔍 Busca Semântica
+
+A consulta por similaridade é realizada com KNN vectors diretamente no OpenSearch:
+
+```python
+from sentence_transformers import SentenceTransformer
+modelo = SentenceTransformer("all-MiniLM-L6-v2")
+vetor_consulta = modelo.encode(["texto de busca"])[0]
+```
+
+---
+
+## ⚙️ Requisitos
+
+- `boto3`
+- `opensearch-py`
+- `sentence-transformers`
+- Permissões de IAM para:
+  - `s3:GetObject`
+  - `es:ESHttp*`
+
+---
+
+## 📁 Executáveis
+
+- `criar_indice.py` — Cria o índice `compliance_docs` com suporte a `knn_vector`
+- `processar_arquivos.py` — Lê arquivos do S3, processa e atualiza OpenSearch
+- `consulta_semantica.py` — Realiza busca por similaridade
+
+---
+
+## 📌 Observações
+
+- A dimensão do vetor é 384 (modelo MiniLM)
+- O ID do documento é `SHA256(titulo + artigo)`
+- Campos revogados recebem `ativo: false` e `revogado_em: YYYY-MM-DD`
+
+---
+
+Desenvolvido para garantir rastreabilidade de alterações legislativas com inteligência semântica.
